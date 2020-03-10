@@ -15,4 +15,4 @@ new Vue({
     	this.todos = this.todos.filter(todo => todo.id !== id)
     }
   }
-})
+}) 
