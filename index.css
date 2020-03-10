@@ -1,5 +1,5 @@
 html, body, pre, code, kbd, samp {
-  font-family: "Press Start 2P";
+  font-family: sans-serif;
 }
 
 body {
@@ -15,7 +15,15 @@ body {
 }
 
 li {
-  margin: 8px 0;
+  /*margin: 8px 0;
+  */
+  background: #ff9999;
+  padding: 20px;
+}
+
+ul li {
+  background: #ffe5e5;
+  margin: 5px;
 }
 
 del {
@@ -32,4 +40,9 @@ del {
 
 .space {
   flex-grow: 1;
+}
+
+h1, h2 {
+  text-align: center;
+  color: red;
 }
