@@ -7,10 +7,9 @@
 </head>
 
 <body>
-<!-- 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> -->
 <div id="app">
-  <h1>TODOS</h1>
-  <input type="text" class="nes-input" placeholder="Add todo..." v-on:keyup.enter="addTodo">     
+  <h1>TO DO LIST</h1>
+  <h2><input type="text" class="nes-input" placeholder="what needs to be done" v-on:keyup.enter="addTodo"> </h2>    
     
   <ul>
     <li v-for="todo in todos" :key="todo.id" class="flex">
