@@ -1,35 +1,47 @@
-<html>
-
-<head>
-	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-	<link rel="stylesheet" href="index.css">
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-
-<body>
-<div id="app">
-  <h1>TO DO LIST</h1>
-  <h2><input type="text" class="nes-input" placeholder="what needs to be done" v-on:keyup.enter="addTodo"> </h2>    
-    
-  <ul>
-    <li v-for="todo in todos" :key="todo.id" class="flex">
-      <label>
-        <input type="checkbox" class="nes-checkbox" v-model="todo.done">
-        <span>&nbsp</span>
-      </label>
-      <del v-if="todo.done">{{ todo.text }}</del>
-      <span v-else>{{ todo.text }}</span>
-      <div class="space"></div>
-      <button class="nes-btn is-error padding" v-on:click="removeTodo(todo.id)">X</button>
-    </li>
-  </ul>
-
-  <center><button type="button">Active</button>
-  <button type="button">Completed</button></center>
-</div>
-
-
-<script src="index.js"></script> 
-
-</body>
+ <html>
+<!-- <html data-framework="vue"> -->
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style> [v-cloak] { display: none; } </style>
+  </head>
+  <body>
+    <div class=app" v-cloak>
+      <header class="header">
+        <h1>todos</h1>
+        <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" v-model="newTodo" @keyup.enter="addTodo">
+      </header>
+      <section class="main" v-show="todos.length">
+        <input id="toggle-all" class="toggle-all" type="checkbox" v-model="allDone">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul class="todo-list">
+          <li class="todo" v-for="todo in filteredTodos" :key="todo.id" :class="{completed: todo.completed, editing: todo == editedTodo}">
+            <div class="view">
+              <input class="toggle" type="checkbox" v-model="todo.completed">
+              <label @dblclick="editTodo(todo)"></label>
+              <button class="destroy" @click="removeTodo(todo)"></button>
+            </div>
+            <input class="edit" type="text" v-model="todo.title" v-todo-focus="todo == editedTodo" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
+          </li>
+        </ul>
+         <script src="index.js"></script> 
+      </div>
+      <footer class="footer" v-show="todos.length">
+        <span class="todo-count">
+          <strong v-text="remaining"></strong> {{pluralize('item', remaining)}} left
+        </span>
+        <ul class="filters">
+          <li><a href="#/all" :class="{selected: visibility == 'all'}">All</a></li>
+          <li><a href="#/active" :class="{selected: visibility == 'active'}">Active</a></li>
+          <li><a href="#/completed" :class="{selected: visibility == 'completed'}">Completed</a></li>
+        </ul>
+        <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
+          Clear completed
+        </button>
+      </footer>
+    </section>
+    <footer class="info">
+    </footer>
+  </body>
 </html>
