@@ -17,8 +17,6 @@ new Vue({
     	this.todos = this.todos.filter(todo => todo.id !== id)
     },
     swapToCompleted() {
-      this.todos = this.activeTodos.concat(this.completedTodos) 
-      console.log(this.todos)
       this.completedTodos = this.todos.filter(todo => todo.done == true)
       this.activeTodos = this.todos.filter(todo => todo.done == false)
       this.todos = this.completedTodos
