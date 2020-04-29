@@ -6,7 +6,7 @@ new Vue({
   	], 
     activeTodos: [], 
     completedTodos: [],
-    showActive: false
+    showActive: false,
     showCompleted: false
   },
   methods: {
@@ -21,15 +21,14 @@ new Vue({
     updateActiveAndCompletedLists() {
       this.completedTodos = this.todos.filter(todo => todo.done == true)
       this.activeTodos = this.todos.filter(todo => todo.done == false)
-      this.todos = this.completedTodos
       }
       showActive() {
-      this.showActive = this.todos(todo => todo.done == true)
-      this.showCompleted = this.todos(todo => todo.done == false)
+      this.showActive = true
+      this.showCompleted = false
       }
       showCompleted() {
-      this.showCompleted = this.todos(todo => todo.done == true)
-      this.showActive = this.todos(todo => todo.done == false)
+      this.showCompleted = true
+      this.showActive = false
       }
   }
 })  
