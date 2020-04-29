@@ -5,7 +5,9 @@ new Vue({
   		{ text: 'test', done: false, id: Date.now() }
   	], 
     activeTodos: [], 
-    completedTodos: []
+    completedTodos: [],
+    showActive: [false],
+    showCompleted: [false]
   },
   methods: {
   	addTodo({target}){
@@ -20,6 +22,14 @@ new Vue({
       this.completedTodos = this.todos.filter(todo => todo.done == true)
       this.activeTodos = this.todos.filter(todo => todo.done == false)
       this.todos = this.completedTodos
+      }
+      showActive() {
+      this.showActive = this.todos.filter(todo => todo.done == true)
+      this.showCompleted = this.todos.filter(todo => todo.done == false)
+      }
+      showCompleted() {
+      this.showCompleted = this.todos.filter(todo => todo.done == true)
+      this.showActive = this.todos.filter(todo => todo.done == false)
       }
   }
 })  
