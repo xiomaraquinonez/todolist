@@ -6,8 +6,8 @@ new Vue({
   	], 
     activeTodos: [], 
     completedTodos: [],
-    showActive: [false],
-    showCompleted: [false]
+    showActive: false
+    showCompleted: false
   },
   methods: {
   	addTodo({target}){
@@ -24,12 +24,12 @@ new Vue({
       this.todos = this.completedTodos
       }
       showActive() {
-      this.showActive = this.todos.filter(todo => todo.done == true)
-      this.showCompleted = this.todos.filter(todo => todo.done == false)
+      this.showActive = this.todos(todo => todo.done == true)
+      this.showCompleted = this.todos(todo => todo.done == false)
       }
       showCompleted() {
-      this.showCompleted = this.todos.filter(todo => todo.done == true)
-      this.showActive = this.todos.filter(todo => todo.done == false)
+      this.showCompleted = this.todos(todo => todo.done == true)
+      this.showActive = this.todos(todo => todo.done == false)
       }
   }
 })  
