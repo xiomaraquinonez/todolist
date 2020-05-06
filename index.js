@@ -23,13 +23,23 @@ new Vue({
       this.completedTodos = this.todos.filter(todo => todo.done == true)
       this.activeTodos = this.todos.filter(todo => todo.done == false)
       },
-      showActive() {
+      showActiveList() {
+      this.updateActiveAndCompletedLists()
       this.showActive = true
       this.showCompleted = false
+      this.showAll = false
       },
-      showCompleted() {
+      showCompletedList() {
+      this.updateActiveAndCompletedLists()
       this.showCompleted = true
       this.showActive = false
-      }
+      this.showAll = false
+
+      },
+      showAllList() {
+      this.updateActiveAndCompletedLists()
+      this.showCompleted = false
+      this.showActive = false
+      this.showAll = true
   }
 })  
