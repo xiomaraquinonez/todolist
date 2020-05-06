@@ -25,7 +25,7 @@ new Vue({
       showActive() {
       this.showActive = true
       this.showCompleted = false
-      }
+      },
       showCompleted() {
       this.showCompleted = true
       this.showActive = false
