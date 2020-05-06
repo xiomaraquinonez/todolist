@@ -29,7 +29,7 @@
   <button v-on:click="showActive">Active</button>
 </div>
 
-<ul>
+<ul v-if="showActive"
     <li v-for="todo in activeTodos" :key="todo.id" class="flex">
       <label>
         <input type="checkbox" class="nes-checkbox" v-model="todo.done">
@@ -42,7 +42,7 @@
     </li>
   </ul>
 
-  <ul>
+  <ul v-if="showCompleted">
       <li v-for="todo in completedTodos" :key="todo.id" class="flex">
       <label>
         <input type="checkbox" class="nes-checkbox" v-model="todo.done">
