@@ -7,7 +7,8 @@ new Vue({
     activeTodos: [], 
     completedTodos: [],
     showActive: false,
-    showCompleted: false
+    showCompleted: false,
+    showAll: false
   },
   methods: {
   	addTodo({target}){
