@@ -21,7 +21,7 @@ new Vue({
     updateActiveAndCompletedLists() {
       this.completedTodos = this.todos.filter(todo => todo.done == true)
       this.activeTodos = this.todos.filter(todo => todo.done == false)
-      }
+      },
       showActive() {
       this.showActive = true
       this.showCompleted = false
