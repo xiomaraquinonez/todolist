@@ -24,12 +24,7 @@
     </li>
   </ul>
 
-  <center>
-  <button v-on:click="showCompleted">Completed</button>
-  <button v-on:click="showActive">Active</button>
-</div>
-
-<ul v-if="showActive"
+  <ul v-if="showActive"
     <li v-for="todo in activeTodos" :key="todo.id" class="flex">
       <label>
         <input type="checkbox" class="nes-checkbox" v-model="todo.done">
@@ -54,6 +49,12 @@
       <button class="nes-btn is-error padding" v-on:click="removeTodo(todo.id)">X</button>
     </li>
   </ul>
+
+  <center>
+  <button v-on:click="showCompleted">Completed</button>
+  <button v-on:click="showActive">Active</button>
+  <button v-on:click="showAll">Show All</button>
+</div>
 
 
 <script src="index.js"></script> 
