@@ -42,4 +42,4 @@ new Vue({
       this.showActive = false
       this.showAll = true
   }
-}
+})
