@@ -4,6 +4,7 @@ new Vue({
   	todos: [
   		{ text: 'test', done: false, id: Date.now() }
   	], 
+    
     activeTodos: [],
     completedTodos: [],
     showActive: false,
